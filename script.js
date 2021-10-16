@@ -13,52 +13,52 @@ let songs = [
   {
     songName: "AS I LAY DYING - Through Struggle",
     filePath: "songs/8.mp3",
-    coverPath: "covers/8.jpg",
+    coverPath: "covers/8.JPG",
   },
   {
     songName: "Bring Me The Horizon - Avalanche",
     filePath: "songs/9.mp3",
-    coverPath: "covers/9.jpg",
+    coverPath: "covers/9.JPG",
   },
   {
     songName: "Bring Me The Horizon - It Never Ends",
     filePath: "songs/4.mp3",
-    coverPath: "covers/4.jpg",
+    coverPath: "covers/4.JPG",
   },
   {
     songName: "Bullet For My Valentine - Tears Don't Fall",
     filePath: "songs/7.mp3",
-    coverPath: "covers/7.jpg",
+    coverPath: "covers/7.JPG",
   },
   {
     songName: "Killswitch Engage - Rose Of Sharyn",
     filePath: "songs/5.mp3",
-    coverPath: "covers/5.jpg",
+    coverPath: "covers/5.JPG",
   },
   {
     songName: "Still Remains - The Worst Is Yet To Come",
     filePath: "songs/6.mp3",
-    coverPath: "covers/6.jpg",
+    coverPath: "covers/6.JPG",
   },
   {
     songName: "This Calling - All That Remains",
     filePath: "songs/1.mp3",
-    coverPath: "covers/1.jpg",
+    coverPath: "covers/1.JPG",
   },
   {
     songName: "Unearth - Zombie Autopilot",
     filePath: "songs/8.mp3",
-    coverPath: "covers/8.jpg",
+    coverPath: "covers/8.JPG",
   },
   {
     songName: "Self Medicated - Until I Wake",
     filePath: "songs/2.mp3",
-    coverPath: "covers/2.jpg",
+    coverPath: "covers/2.JPG",
   },
   {
     songName: "Wage War - Low",
     filePath: "songs/10.mp3",
-    coverPath: "covers/10.jpg",
+    coverPath: "covers/10.JPG",
   },
 ];
 
