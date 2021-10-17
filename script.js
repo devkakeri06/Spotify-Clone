@@ -18,47 +18,47 @@ let songs = [
   {
     songName: "Bring Me The Horizon - Avalanche",
     filePath: "songs/9.mp3",
-    coverPath: "covers/9.JPG",
+    coverPath: "covers/9.jpg",
   },
   {
     songName: "Bring Me The Horizon - It Never Ends",
     filePath: "songs/4.mp3",
-    coverPath: "covers/4.JPG",
+    coverPath: "covers/4.jpg",
   },
   {
     songName: "Bullet For My Valentine - Tears Don't Fall",
     filePath: "songs/7.mp3",
-    coverPath: "covers/7.JPG",
+    coverPath: "covers/7.jpg",
   },
   {
     songName: "Killswitch Engage - Rose Of Sharyn",
     filePath: "songs/5.mp3",
-    coverPath: "covers/5.JPG",
+    coverPath: "covers/5.jpg",
   },
   {
     songName: "Still Remains - The Worst Is Yet To Come",
     filePath: "songs/6.mp3",
-    coverPath: "covers/6.JPG",
+    coverPath: "covers/6.jpg",
   },
   {
     songName: "This Calling - All That Remains",
     filePath: "songs/1.mp3",
-    coverPath: "covers/1.JPG",
+    coverPath: "covers/1.jpg",
   },
   {
     songName: "Unearth - Zombie Autopilot",
     filePath: "songs/8.mp3",
-    coverPath: "covers/8.JPG",
+    coverPath: "covers/8.jpg",
   },
   {
     songName: "Self Medicated - Until I Wake",
     filePath: "songs/2.mp3",
-    coverPath: "covers/2.JPG",
+    coverPath: "covers/2.jpg",
   },
   {
     songName: "Wage War - Low",
     filePath: "songs/10.mp3",
-    coverPath: "covers/10.JPG",
+    coverPath: "covers/10.jpg",
   },
 ];
 
@@ -86,6 +86,38 @@ audioElement.addEventListener("timeupdate", () => {
   // Update Seekbar
   progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
   myProgressBar.value = progress;
+  if (loop.style.color == "limegreen") {
+    if (progress === 100) {
+      audioElement.src = `songs/${songIndex + 1}.mp3`;
+      masterSongName.innerText = songs[songIndex].songName;
+      audioElement.currentTime = 0;
+      audioElement.play();
+      masterPlay.classList.remove("fa-play-circle");
+      masterPlay.classList.add("fa-pause-circle");
+    }
+  } else if (shuffle.style.color == "limegreen") {
+    if (progress === 100) {
+      randomIndex = Math.floor(Math.random() * 10);
+      audioElement.src = `songs/${randomIndex + 1}.mp3`;
+      masterSongName.innerText = songs[randomIndex].songName;
+      audioElement.currentTime = 0;
+      audioElement.play();
+      masterPlay.classList.remove("fa-play-circle");
+      masterPlay.classList.add("fa-pause-circle");
+    }
+  } else if (progress === 100) {
+    if (songIndex >= 9) {
+      songIndex = 0;
+    } else {
+      songIndex += 1;
+    }
+    audioElement.src = `songs/${songIndex + 1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove("fa-play-circle");
+    masterPlay.classList.add("fa-pause-circle");
+  }
 });
 
 myProgressBar.addEventListener("change", () => {
@@ -121,29 +153,69 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
 );
 
 document.getElementById("next").addEventListener("click", () => {
-  if (songIndex >= 9) {
-    songIndex = 0;
-  } else {
-    songIndex += 1;
+  if (shuffle.style.color == "limegreen") {
+    randomIndex = Math.floor(Math.random() * 10);
+    audioElement.src = `songs/${randomIndex + 1}.mp3`;
+    masterSongName.innerText = songs[randomIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove("fa-play-circle");
+    masterPlay.classList.add("fa-pause-circle");
+  } else if (true) {
+    if (songIndex >= 9) {
+      songIndex = 0;
+    } else {
+      songIndex += 1;
+    }
+    audioElement.src = `songs/${songIndex + 1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove("fa-play-circle");
+    masterPlay.classList.add("fa-pause-circle");
   }
-  audioElement.src = `songs/${songIndex + 1}.mp3`;
-  masterSongName.innerText = songs[songIndex].songName;
-  audioElement.currentTime = 0;
-  audioElement.play();
-  masterPlay.classList.remove("fa-play-circle");
-  masterPlay.classList.add("fa-pause-circle");
 });
 
 document.getElementById("previous").addEventListener("click", () => {
-  if (songIndex <= 0) {
-    songIndex = 0;
-  } else {
-    songIndex -= 1;
+  if (shuffle.style.color == "limegreen") {
+    randomIndex = Math.floor(Math.random() * 10);
+    audioElement.src = `songs/${randomIndex + 1}.mp3`;
+    masterSongName.innerText = songs[randomIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove("fa-play-circle");
+    masterPlay.classList.add("fa-pause-circle");
+  } else if (true) {
+    if (songIndex <= 0) {
+      songIndex = 0;
+    } else {
+      songIndex -= 1;
+    }
+    audioElement.src = `songs/${songIndex + 1}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.play();
+    masterPlay.classList.remove("fa-play-circle");
+    masterPlay.classList.add("fa-pause-circle");
   }
-  audioElement.src = `songs/${songIndex + 1}.mp3`;
-  masterSongName.innerText = songs[songIndex].songName;
-  audioElement.currentTime = 0;
-  audioElement.play();
-  masterPlay.classList.remove("fa-play-circle");
-  masterPlay.classList.add("fa-pause-circle");
 });
+
+let shuffle = document.getElementById("shuffle");
+shuffle.addEventListener("click", toggle1);
+function toggle1() {
+  if (shuffle.style.color != "limegreen") {
+    shuffle.style.color = "limegreen";
+  } else if (shuffle.style.color == "limegreen") {
+    shuffle.style.color = null;
+  }
+}
+
+let loop = document.getElementById("loop");
+loop.addEventListener("click", toggle2);
+function toggle2() {
+  if (loop.style.color != "limegreen") {
+    loop.style.color = "limegreen";
+  } else if (loop.style.color == "limegreen") {
+    loop.style.color = null;
+  }
+}
