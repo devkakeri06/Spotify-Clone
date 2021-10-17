@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
 body {
-  background-color: antiquewhite;
+  background-color: antiquewhite !important ;
 }
 
 * {
@@ -43,7 +44,7 @@ nav ul li {
   color: white;
   font-family: "Varela Round", sans-serif;
   display: flex;
-  margin: 23px auto;
+  margin: 23px 20px;
   width: 70%;
   border-radius: 12px;
   padding: 34px;
@@ -54,7 +55,7 @@ nav ul li {
 .bottom {
   position: sticky;
   bottom: 0;
-  height: 130px;
+  height: 145px;
   background-color: black;
   color: white;
   display: flex;
@@ -66,13 +67,17 @@ nav ul li {
 .icons {
   margin-top: 14px;
   text-align: center;
+  margin-bottom: 14px;
+
+  margin-top: 23px;
+  margin-bottom: 23px;
 }
 .icons i {
   cursor: pointer;
 }
 
 #myProgressBar {
-  width: 80vw;
+  width: 70vw;
   cursor: pointer;
 }
 
@@ -115,9 +120,33 @@ nav ul li {
   opacity: 0;
   transition: opacity 0.4s ease-in;
 }
+#shuffle {
+  position: absolute;
+  right: 78vw;
+}
+#loop {
+  position: absolute;
+  left: 78vw;
+}
+#previous:hover {
+  color: limegreen;
+}
+#masterPlay:hover {
+  color: limegreen;
+}
+#next:hover {
+  color: limegreen;
+}
+#shuffle:hover {
+  color: #b1e693;
+}
+#loop:hover {
+  color: #b1e693;
+}
 @media only screen and (max-width: 1100px) {
   .bottom .icons {
     margin-top: 23px;
+    margin-bottom: 23px;
   }
   .bottom {
     height: 170px;
@@ -126,28 +155,41 @@ nav ul li {
 @media only screen and (max-width: 725px) {
   .container {
     font-size: 14px;
+    max-width: 90vw !important;
   }
   .timestamp {
     display: flex;
     justify-content: space-evenly;
     margin-left: 3px;
     margin-right: 10px;
+    align-items: center;
   }
   .songItem img {
     margin-right: 12px;
   }
+  .icons {
+    font-size: 12px;
+  }
 }
+
 @media only screen and (max-width: 595px) {
   .container {
     font-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 90vw !important;
   }
   .timestamp {
     display: flex;
     justify-content: space-evenly;
     margin-left: 3px;
     margin-right: 10px;
+    align-items: center;
   }
   .songItem img {
     margin-right: 12px;
+  }
+  .icons {
+    font-size: 12px;
   }
 }
